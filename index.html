@@ -2,24 +2,65 @@
 <html>
 <head>
     <title>Voting Interface</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #candidateList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #candidateList li {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #63b8ff;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: moveStars 20s linear infinite;
+        }
+        @keyframes moveStars {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100vh);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Cast Your Vote</h1>
-    <div id="message" style="color: yellow; display: none;">You have already voted</div>
-    <ul id="candidateList">
-        <li>Mark Daniels Mbaziira - <button onclick="vote('candidate1')" id="candidate1">Vote (0 votes)</button></li>
-        <li>Purity Nalwadda - <button onclick="vote('candidate2')" id="candidate2">Vote (0 votes)</butt<!DOCTYPE html>
-<html>
-<head>
-    <title>Voting Interface</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
+    <div class="container">
         <h1>Cast Your Vote</h1>
-    </header>
-    <main>
-        <div id="message" class="hidden">You have already voted</div>
+        <div id="message" style="color: yellow; display: none;">You have already voted</div>
         <ul id="candidateList">
             <li>Mark Daniels Mbaziira - <button onclick="vote('candidate1')" id="candidate1">Vote (0 votes)</button></li>
             <li>Purity Nalwadda - <button onclick="vote('candidate2')" id="candidate2">Vote (0 votes)</button></li>
@@ -28,15 +69,18 @@
             <li>Ukasha Ssenyomo - <button onclick="vote('candidate5')" id="candidate5">Vote (0 votes)</button></li>
             <li>Brian Doctor Matovu - <button onclick="vote('candidate6')" id="candidate6">Vote (0 votes)</button></li>
         </ul>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>on></li>
-        <li>Livingstone Mbamanya - <button onclick="vote('candidate3')" id="candidate3">Vote (0 votes)</button></li>
-        <li>Sharif Kizito - <button onclick="vote('candidate4')" id="candidate4">Vote (0 votes)</button></li>
-        <li>Ukasha Ssenyomo - <button onclick="vote('candidate5')" id="candidate5">Vote (0 votes)</button></li>
-        <li>Brian Doctor Matovu - <button onclick="vote('candidate6')" id="candidate6">Vote (0 votes)</button></li>
-    </ul>
+    </div>
     <script src="app.js"></script>
+    <script>
+        // Create stars background
+        for (let i = 0; i < 100; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            document.body.appendChild(star);
+        }
+    </script>
 </body>
 </html>
