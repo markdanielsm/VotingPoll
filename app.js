@@ -1,20 +1,9 @@
-let hasVoted = localStorage.getItem('hasVoted') || false;
-
-function vote(candidateId) {
-    if (hasVoted) {
-        document.getElementById('message').style.display = 'block';
-        return;
-    }
-
-    let button = document.getElementById(candidateId);
-    let currentVotes = parseInt(button.innerText.match(/\d+/)[0]);
-    button.innerText = `Vote (${currentVotes + 1} votes)`;
-    hasVoted = true;
-    localStorage.setItem('hasVoted', true);
-}
-
-window.onload = function() {
-    if (hasVoted) {
-        document.getElementById('message').style.display = 'block';
-    }
+// Create stars background
+for (let i = 0; i < 100; i++) {
+    let star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = `${Math.random() * 100}vw`;
+    star.style.top = `${Math.random() * 100}vh`;
+    star.style.animationDuration = `${Math.random() * 10 + 10}s`;
+    document.body.appendChild(star);
 }
